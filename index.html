@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<title>Univasa</title>
+
+
+    <!--css links-->
+    <link href="styles/framework7.material.colors.min.css" rel="stylesheet">
+    <link href="styles/framework7.material.css" rel="stylesheet">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+     <link href="styles/style.css" rel="stylesheet">
+     <link href="styles/material-icons.css" rel="stylesheet">
+      <link href="styles/kitchen-" rel="stylesheet">
+    <link rel="stylesheet" href="styles/font-awesome-animation.min.css">
+    
+    <!--scripts-->
+    <script src="cordova.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/framework7.min.js"></script>
+
+    <script src="scripts/my-app.js"></script>
+    <script src="scripts/kitchen-sin"></script>
+
+
+    <script src="scripts/dashboard.js"></script>
+    <script src="scripts/status.js"></script>
+    <script src="mixpanel.js"></script>
+    <style>
+         @font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(fonts/MaterialIcons-Regular.woff2) format('woff2'),
+       url(fonts/MaterialIcons-Regular.woff) format('woff'),
+       url(fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  
+  
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+  .demo-card-header-pic .card-header {
+   
+    background-size: cover;
+    background-position: center;
+  }
+
+       body{
+           font-family: 'Ubuntu', sans-serif;
+       }
+       .name{
+           font-size:25px;
+           color: #ffffff;
+           
+       }
+       .facebook-date {
+  
+    font-size: 13px;
+    color: #ffffff;
+  }
+  .details{
+      font-size:17px;
+  }
+  .labels{
+      font-size:10px;
+  }.actions{
+      color:#607D8B;
+  }
+  .hidden{
+      display:none;
+  }
+  .label{
+      display:inline-block;
+      margin:auto;
+  }
+  .text-center{
+      font-family: 'Ubuntu', sans-serif;
+      
+  }
+  hr{
+      display:none;
+  }
+       </style>
+
+
+
+
+</head>
+
+
+
+
+
+<body>
+
+    <div class="statusbar-overlay"></div>
+
+    <div class="panel-overlay"></div>
+
+    <div class="panel panel-left panel-reveal" style='background-color:#b1b1b1;'>
+        <div class="list-block">
+    <ul>
+         <a href="#" class="item-link" onclick="location.href='recharge.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/tablet1.svg' width='20px'></div>
+    <div class="item-inner">Buy Airtime</div>
+  </div>
+</a>
+ <a href="#" class="item-link hidden" onclick="location.href='sms.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/sms1.svg' width='20px'></div>
+    <div class="item-inner">Send Bulk SMS</div>
+  </div>
+</a>
+       <a href="#" class="item-link" onclick="location.href='fund.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/wallet (2).svg' width='20px'></div>
+    <div class="item-inner">Fund Wallet</div>
+  </div>
+</a>
+
+ <a href="#" class="item-link" onclick="location.href='profile.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/user.svg' width='20px'></div>
+    <div class="item-inner">My Profile</div>
+  </div>
+</a>
+<a href="contact.html" class="item-link">
+  <div class="item-content">
+    <div class="item-media"><img src='images/checked.svg' width='20px'></div>
+    <div class="item-inner">Contact Us</div>
+  </div>
+</a>
+ <a href="#" class="item-link" onclick="location.href='index.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/power-button.svg' width='20px'></div>
+    <div class="item-inner">Logout</div>
+  </div>
+</a>
+    </ul>
+    
+</div>
+
+<span style='position:fixed;bottom:2px;display:block;margin:auto;'>version 2.1.2<span>
+    </div>
+    
+    <div class="views">
+    <div class="view view-main">
+        <!--toolbar-->
+        <div class="navbar hidden" style='background-color:#333333'>
+    <div class="navbar-inner">
+      
+      <div class="center" style=''><strong>UNIVASA</strong></div>
+      <div class="right"><a href="#"  data-panel="left" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+    </div>
+  </div>
+     <div class="toolbar hidden" style="background-color:#aC493C">
+              <div class="toolbar-inner tabbar tabbar-labels">
+                <!-- Toolbar links -->
+                <a href="#"  class="link close-popup"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                <a href="#" class="link"><i class="fa fa-gift fa-2x" aria-hidden="true"></i>></a>
+                <a href="#" class="link"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
+                <!--<a href="#" class="link" style="font-size:30px;">UNIVASA</a>-->
+                <a href="#dashboard"  class="link"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
+              </div>
+            </div>
+      <div class="pages navbar-through toolbar-through">
+        <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                
+        <div class="page " data-page="login" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#CC695C  ); 
+background: linear-gradient(-190deg, #CC695C,#CC695C   );" >
+                
+             <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/credit-card.svg" width="50px"  class="hidden">
+              <img src="images/ring.svg" id="topupLoader" class="hidden">
+              <h1 id='topupNotify' style='font-size:10vh'>UNIVASA<h1>
+              
+              </div>
+      </div>
+     
+
+      <div  class="theme-white" >
+          
+           <div  id="loginForm" class="list-block inputs-list">
+      <ul style="margin-top:20vh;">
+        
+        <hr>
+         <li style="margin-top:2vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">contact_phone</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:19px;">Phone number</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="tel" id='loginUsername' required placeholder="Enter Phone Number" style="color:#ffffff;font-size:25px;">
+              </div>
+            </div>
+          </div>
+        </li>
+<hr>
+        <li style="margin-top:2vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">lock_open</i></div>
+            <div class="item-inner"> 
+              <div class="item-title label" style="color:#ffffff;font-size:19px;">Password</div>
+               <div class="item-input" style="color:#ffffff">
+                <input type="password" id='loginPassword' required placeholder="Enter Password" style="color:#ffffff;font-size:25px;">
+              </div>
+            </div>
+          </div>
+        </li>
+       
+
+       
+
+
+
+        
+       
+        
+       
+      </ul>
+</div>
+      <hr/>
+      <br>
+      <input type="submit" value='LOGIN' id='loginSubmit' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">
+      <br>
+            
+                <p class="buttons-row">
+  <a href="#register" class="button"  style='color:#ffffff;'>Create an account</a>
+  <a href="#forgotPassword" class="button" style='color:#ffffff;'>Forgot password?</a>
+</p>
+           
+
+           <p class="buttons-row " style='margin-top:10px;'>
+  <a href="#"  onclick="location.href='about.html'"><img src='images/icon.svg' width='30px' style='padding-left:30px;padding-right:30px'></a>
+  <a href="#" onclick="location.href='contact.html'"><img src='images/customer-care.svg'  width='30px' style='padding-right:30px'></a>
+  <a href="#" class='goToWebsite' ><img src='images/internet.svg' width='30px' style='padding-right:30px'></a>
+</p>
+          
+          
+
+</div> 
+
+
+        </div>
+
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+   
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="page cached" data-page="register" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#CC695C  ); 
+background: linear-gradient(-190deg, #CC695C,#CC695C   );" >
+                
+             <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/users.svg" width="50px"  >
+              
+              <h3  style='font-size:3vh'>Create an account<h3>
+              
+              </div>
+      </div>
+      
+
+      <div id="registrationForm" class="theme-white" >
+          
+           <div class="list-block inputs-list" >
+      <ul style="">
+        
+        <hr>
+         <li style="margin-top:1vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">person_outline</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Full name</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="text" id='registrationName' required placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li style="margin-top:1vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">email</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Email</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="email" id='registrationEmail' required placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li style="margin-top:1vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">contact_phone</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Phone number</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="tel" id='registrationPhone' required placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+<hr>
+        <li style="margin-top:1vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">lock_open</i></div>
+            <div class="item-inner"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Password</div>
+               <div class="item-input" style="color:#ffffff">
+                <input type="password" id='registrationPassword' required placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li style="margin-top:1vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">lock_open</i></div>
+            <div class="item-inner"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Confirm Password</div>
+               <div class="item-input" style="color:#ffffff">
+                <input type="password" id='registrationPassword1' required placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li style="margin-top:1vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">directions</i></div>
+            <div class="item-inner"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Referral code<span style='font-size:7px;padding-left:5px;'>(optional)</span></div>
+               <div class="item-input" style="color:#ffffff">
+                <input type="number" id='registrationRefferral' placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+       
+
+       
+
+
+
+        
+       
+        
+       
+      </ul>
+
+      <hr/>
+      <br>
+      <input type="submit" value='Submit' id='registrationSubmit' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">
+      <br>
+            <a href="#login"  class="button button-fill button-raised back" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CANCEL</a>
+
+           </div>
+
+          
+          
+
+</div> 
+
+
+        </div>
+
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+   
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="page cached" data-page="forgotPassword" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#CC695C  ); 
+background: linear-gradient(-190deg, #CC695C,#CC695C   );" >
+                
+             <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/credit-card.svg" width="50px"  class="hidden">
+              <img src="images/ring.svg" id="topupLoader" class="hidden">
+              <h4  style='font-size:5vh'>Forgot Password<h4>
+              
+              </div>
+      </div>
+     
+
+      <div id="topupForm" class="theme-white" >
+          
+           <div id='forgotForm' class="list-block inputs-list">
+      <ul style="margin-top:20vh;">
+        
+        <hr>
+         <li style="margin-top:2vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">contact_phone</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Enter Phone number</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="tel" id='forgotPhoneInput' required placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:25px;">
+              </div>
+            </div>
+          </div>
+        </li>
+</ul>
+
+      <hr/>
+      <br>
+      <input type="submit" value='Submit' id='forgotPasswordSubmit' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">
+      <br>
+           <a href="#login"  class="button button-fill button-raised back" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CANCEL</a>
+
+                
+           </div>
+          
+          
+
+</div> 
+
+
+        </div>
+
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+   
+
+
+    </div>
+
+
+
+
+
+<div class="page cached" data-page="verify" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#CC695C  ); 
+background: linear-gradient(-190deg, #CC695C,#CC695C   );" >
+                
+             <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/credit-card.svg" width="50px"  class="hidden">
+              <img src="images/ring.svg" id="topupLoader" class="hidden">
+              <h4  style='font-size:5vh'>Phone number verification<h4>
+              
+              </div>
+      </div>
+     
+
+      <div id="topupForm" class="theme-white" >
+          
+           <div class="list-block inputs-list">
+      <ul style="margin-top:20vh;">
+        
+        <hr>
+         <li style="margin-top:2vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">verified_user</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Enter verification code</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="tel" id='verificationCode' required placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+<hr>
+        
+       
+
+       
+
+
+
+        
+       
+        
+       
+      </ul>
+
+      <hr/>
+      <br>
+      <input type="submit" value='Verify' id='verificationSubmit' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">
+      <br>
+                
+           </div>
+
+         
+          
+          
+
+</div> 
+
+
+        </div>
+
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+   
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="page cached" data-page="updateApp" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#CC695C  ); 
+background: linear-gradient(-190deg, #CC695C,#CC695C   );" >
+                
+             <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block theme-white">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/credit-card.svg" width="50px"  class="hidden">
+              <img src="images/ring.svg" id="topupLoader" class="hidden">
+              <h4  style='font-size:5vh'>Update App<h4>
+              
+              </div>
+      </div>
+     
+
+       
+          <p style='color:#ffffff'>
+              Your current app version is out of date, update to the more recent version
+          </p>
+       
+     
+
+      <br>
+    <a href="#" onclick="updateApp()" class="button button-fill button-raised"  style='color:#ffffff;'>Update app</a>
+   <br>
+            
+           
+
+        
+          
+          
+
+
+
+
+        </div>
+
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+   
+
+
+    </div>
+
+
+
+
+
+
+
+ <div class="page cached" data-page="updateApp" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#CC695C  ); 
+background: linear-gradient(-190deg, #CC695C,#CC695C   );" >
+                
+             <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block ">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/credit-card.svg" width="50px"  class="hidden">
+              <img src="images/ring.svg" id="topupLoader" class="hidden">
+              <h4  style='font-size:5vh'>Update App<h4>
+              
+              </div>
+      </div>
+     
+
+       
+          <p>
+              Your current app version is out of date, update to the more recent version
+          </p>
+       
+     
+
+      <br>
+    
+   <a href="#"  onclick="updateApp()" class="button" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">Update App</a>
+    
+
+        </div>
+
+    </div>
+
+
+    </div>
+
+
+
+
+
+
+    <!--///-->
+
+    <!--///-->
+    </div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of view main-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of views-->
+
+
+<!--//////-->
+
+
+
+
+  </div>
+
+
+<!--///-->
+
+
+<script>
+
+       
+var myApp = new Framework7({
+    material:true,
+    materialRipple:false,
+
+    
+});
+
+var $$ = Dom7;
+
+
+var mainView = myApp.addView('.view-main', {
+    domCache: true
+});
+
+$$('.notification-default').on('click', function () {
+    myApp.addNotification({
+        title: 'Framework7',
+        message: 'This is a simple notification message with title and message'
+    });
+});
+
+   
+     
+   
+    function myFunction(){
+        cordova.InAppBrowser.open("http://www.bemastech.com/caleb/mobileapi/gtpay.php?pay&serv=1&cat=1&amount=501&number=07033581503&user_id=24", '_self', 'location=no');
+      
+    }
+
+$('.goBack').click(function(){
+    
+});
+
+
+
+                            
+                                    var version_code = '1.2.1';
+                                   $.ajax({
+                                       type:'get',
+                                       url:'https://www.univasa.com/mobileapi/version_check.php',
+                                       data:{version_code:version_code},
+                                       
+                                       success:function(response){
+                                          //alert(response);
+                                          localStorage.setItem("version_code",version_code)
+                                          
+                                           if(response == 'download'){
+                                              
+                                                //mainView.router.load({pageName: 'updateApp'});
+                                                location.href = 'update.html';
+                                                return false;
+                                           }
+                                       }
+                                   })
+
+                                   
+                              
+                            
+    
+
+    /*
+$('#checkTransaction').click(function(){
+ $('.statusAction').fadeOut();
+ $('#transactionInput').fadeIn();
+ $('#notify').text('Enter transaction ID');
+ var transID = $('#transactionInput').val();
+ $('#queryTransaction').click(function(){
+     var ref_number = $('#transactionID').val();
+     
+     $('#loader').css('display','block');
+     $.ajax({
+         type:'get',
+         url:'http://www.bemastech.com/caleb/mobileapi/status-check.php',
+         data:{ref_number:ref_number},
+
+         success:function(response){
+             alert(response);
+            
+         }
+     })
+
+ });
+
+});
+
+*/
+<!--topup-->
+
+
+
+
+
+$("#registrationSubmit").click(function(){
+   myApp.showPreloader('Creating your account')
+
+
+        //load from input
+        var name = $('#registrationName').val();
+		var email = $('#registrationEmail').val();
+		var phone = $('#registrationPhone').val();
+		var password = $('#registrationPassword').val();
+		var password1 = $('#registrationPassword1').val();
+        var referrer = $('#registrationReferral').val();
+
+
+var characterPreg =  /\`|\~|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\+|\=|\[|\{|\]|\}|\||\\|\'|\<|\,|\.|\>|\?|\/|\""|\;|\:|\s/g;
+var characterPreg2 = /\d/g;
+if(name == '' || email == '' || phone == '' || password== '' || password1 == ''){
+    myApp.alert('Kindly fill all compulsory form fields','Try again')
+        myApp.hidePreloader()
+        return false;
+}
+
+if(characterPreg.test(name) || characterPreg.test(phone) || characterPreg.test(referrer) || !characterPreg2(referrer)) {
+    myApp.alert('One of your entries is not properly formatted','Try again')
+        myApp.hidePreloader()
+        return false;
+}
+
+
+var passwordPreg = /(?=.*[0-9]).{5,}/;
+
+
+if(!passwordPreg.test(password)){
+    myApp.alert('Use a numeric password not less than 5 digits','Try again')
+        myApp.hidePreloader()
+        return false;
+}
+//end validation
+        //registration ajax request
+        $.ajax({
+        type: 'post',
+			url: 'https://www.univasa.com/mobileapi/register.php',
+			data:{name:name,email:email,phone:phone,referrer:referrer,password:password,password1:password1},
+            success:function(response){
+                if(response === 'success'){
+                    $('#registrationForm')[0].reset();
+                    myApp.hidePreloader()
+                    
+                        //confirmation alert
+                        myApp.modal({
+    title:  'Registration successful',
+    text: '<div>'+'<img src="images/success.svg" width="100px" style="display:block;margin:auto;">'+
+    '<h4 style="text-align:center;">Please enter the verification code sent to your mobile number via SMS to complete your registration</h4>'+'</div>'+'<br>',
+        verticalButtons: true,
+    buttons: [
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">ENTER VERIFICATION CODE</a>',
+            onClick: function () {
+                myApp.closeModal()
+          mainView.router.load({pageName: 'verify'});
+
+        }
+        },
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">SKIP</a>',
+            onClick: function () {
+            myApp.closeModal()
+            
+          mainView.router.load({pageName: 'login'});
+        }
+        },
+    ]
+
+  })
+  mixpanel.track("Account Created", {"email":email})
+                  return false;  
+                }//end if
+                else{
+                    myApp.closeModal()
+                    myApp.alert(response,'Try Again')
+                    /*myApp.modal({
+    title:  'Failed',
+    text: '<div>'+'<img src="images/failed.svg" width="100px" style="display:block;margin:auto;">'+
+    '<h4 style="text-align:center;" id="errorAlert"></h4>'+'</div>'+'<br>',
+        verticalButtons: true,
+    buttons: [
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">OK</a>',
+            onClick: function () {
+          myApp.closeModal()
+        }
+        }
+    ]
+
+  })*/
+                }//end else
+            }//end success function
+
+            }); //end registration ajax request
+
+
+ 
+
+
+
+});//end registration 
+
+
+
+
+
+
+
+
+//account verification
+
+$("#verificationSubmit").click(function(){
+   myApp.showPreloader('Processing')
+
+
+
+        //load from input
+        var code = $('#verificationCode').val();
+		
+        //verification ajax request
+        $.ajax({
+        type: 'post',
+			url: 'https://www.univasa.com/mobileapi/activate.php',
+			data:{code:code},
+            success:function(response){
+                if(response === 'success'){
+                    
+                    myApp.hidePreloader()
+
+                        //confirmation alert
+                        myApp.modal({
+    title:  'Verification successful',
+    text: '<div>'+'<img src="images/success.svg" width="100px" style="display:block;margin:auto;">'+
+    '<h4 style="text-align:center;">Your account has been verified. Login now to enjoy our services.</h4>'+'</div>'+'<br>',
+        verticalButtons: true,
+    buttons: [
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">LOGIN</a>',
+            onClick: function () {
+                myApp.closeModal()
+          mainView.router.load({pageName: 'login'});
+        }
+        },
+        
+    ]
+
+  })
+                  return false;  
+                }//end if
+                else{
+                    myApp.closeModal()
+                    myApp.alert(response,'Try Again')
+                    
+                }//end else
+            }//end success function
+
+            }); //end verification ajax request
+
+
+ 
+
+
+
+});//end verification 
+
+
+
+
+
+
+
+
+
+//login
+
+$("#loginSubmit").click(function(){
+   myApp.showPreloader('Logging in')
+
+
+
+        //load from input
+        var username = $('#loginUsername').val();
+		var password = $('#loginPassword').val();
+		var version_code = localStorage.getItem('version_code')
+        //verification ajax request
+        $.ajax({
+        type: 'post',
+			url: 'https://www.univasa.com/mobileapi/login.php',
+			data:{username:username,password:password,version_code:version_code},
+            dataType: "json",
+            beforeSend: function(){
+    var characterReg = /([0-9])/;
+                
+                if(username == '' || password == ''){
+                    myApp.alert('Invalid username or password','Try again')
+                    myApp.hidePreloader()
+                        return false;
+                }
+                if(!characterReg.test(username)) {
+        myApp.alert('The phone number you entered is invalid','Try again')
+        myApp.hidePreloader()
+        return false;
+    }
+            },
+            
+            success:function(response){
+
+                 myApp.hidePreloader()
+
+                    var user_id = response[0]; 
+				var responses = response[2];
+				var name = response[1]; 
+				var code = response[3];
+				var accessKey = response[4];
+
+                if(responses === 'success'){
+                    
+                   document.cookie = "userID="+user_id;
+						window.localStorage.setItem("userID", user_id);
+						document.cookie = "name="+name;
+						window.localStorage.setItem("userName", name);
+                        document.cookie = "code="+code;
+                        window.localStorage.setItem("code", code);
+						document.cookie = "accessKey="+accessKey;
+						window.localStorage.setItem("accessKey", accessKey);
+
+                        var date =  Date();
+                                            
+                                           
+
+                                           
+                                                mixpanel.identify(user_id);
+mixpanel.people.set({
+
+    "$first_name": name,
+    "user_id": user_id,
+    "last_login": date,
+    "app_version": version_code,
+  
+})
+
+mixpanel.track("Login",
+                                           {"user_id": user_id,"name":name})
+                                       
+					 	window.location.href = 'recharge.html';
+
+                       
+                  return false;  
+                }//end if
+                else{
+                    myApp.closeModal()
+                    myApp.alert(response,'Try Again')
+                    
+                    
+                }//end else
+            }//end success function
+
+            }); //end login ajax request
+
+
+ 
+
+
+
+});//end login
+
+
+
+//forgotPassword
+
+$('#forgotPasswordSubmit').click(function(){
+    myApp.showPreloader()
+
+    var phone = $('#forgotPhoneInput').val();
+
+   var characterPreg =  /\`|\~|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\+|\=|\[|\{|\]|\}|\||\\|\'|\<|\,|\.|\>|\?|\/|\""|\;|\:|\s/g;
+var characterPreg2 = /\d/g;
+    if(!characterPreg2.test(phone) || characterPreg.test(phone)){
+        myApp.alert('Your entry is not properly formatted','Try again')
+        myApp.hidePreloader()
+        return false;
+    }
+    $.ajax({
+			type: 'post',
+			url: 'https://www.univasa.com/mobileapi/reset.php',
+			data:{phone:phone},
+            success:function(response){
+               myApp.hidePreloader()
+                if(response == 'Successful'){
+                    myApp.alert("Your new password has been sent to you by SMS and email",'Forgot Password')
+                   
+mixpanel.track("Reset Password")
+                return false;
+                }
+                
+                
+            }
+    });
+}); //end forgot
+
+
+
+
+
+
+
+
+
+
+
+
+$('.goToWebsite').click(function(){
+    cordova.InAppBrowser.open("https://www.univasa.com/home.php", '_self', 'location=yes');
+      
+});
+$('.contactUs').click(function(){
+    location.href='contact.html';
+      
+});
+$('.aboutUs').click(function(){
+    location.href='about.html';
+      
+});
+
+
+
+
+
+
+
+
+    </script>
+
+    
+
+    <script>
+	document.cookie = "userID=0";
+	document.cookie = "name=";
+    document.cookie = "code=";
+	document.cookie = "accessKey=";
+	window.localStorage.clear();
+    
+
+
+</script>
+
+
+    
+</body>
+</html>

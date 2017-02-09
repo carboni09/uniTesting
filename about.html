@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<title>Univasa</title>
+
+
+    <!--css links-->
+    <link href="styles/framework7.material.css" rel="stylesheet">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+     <link href="styles/style.css" rel="stylesheet">
+     <link href="styles/material-icons.css" rel="stylesheet">
+      <link href="styles/kitchen-sink.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/font-awesome-animation.min.css">
+    
+    <!--scripts-->
+    <script src="cordova.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/framework7.min.js"></script>
+
+    <script src="scripts/my-app.js"></script>
+    <script src="scripts/kitchen-sink.js"></script>
+
+
+    <script src="scripts/dashboard.js"></script>
+    <script src="scripts/status.js"></script>
+
+    <style>
+        .centered{
+            display:block;
+            margin:auto;
+        }
+         @font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(fonts/MaterialIcons-Regular.woff2) format('woff2'),
+       url(fonts/MaterialIcons-Regular.woff) format('woff'),
+       url(fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  
+  
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+  .demo-card-header-pic .card-header {
+   
+    background-size: cover;
+    background-position: center;
+  }
+
+       body{
+           font-family: 'Ubuntu', sans-serif;
+       }
+       .name{
+           font-size:25px;
+           color: #ffffff;
+           
+       }
+       .facebook-date {
+  
+    font-size: 13px;
+    color: #ffffff;
+  }
+  .details{
+      font-size:17px;
+  }
+  .labels{
+      font-size:10px;
+  }.actions{
+      color:#607D8B;
+  }
+  .hidden{
+      display:none;
+  }
+  .label{
+      display:inline-block;
+      margin:auto;
+  }
+  .text-center{
+      font-family: 'Ubuntu', sans-serif;
+      
+  }
+  .swiper-pagination-bullet-active {
+  background: #ffffff;
+  border-color: #a1a1a1;
+}
+       </style>
+    
+
+</head>
+<body>
+
+    <div class="statusbar-overlay"></div>
+
+    <div class="panel-overlay"></div>
+    
+
+    <div class="panel panel-left panel-reveal" style='background-color:#b1b1b1;'>
+        <div class="list-block">
+    <ul>
+         <a href="#" class="item-link" onclick="location.href='recharge.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/tablet1.svg' width='20px'></div>
+    <div class="item-inner">Buy Airtime</div>
+  </div>
+</a>
+ <a href="#" class="item-link" onclick="location.href='sms.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/sms1.svg' width='20px'></div>
+    <div class="item-inner">Send Bulk SMS</div>
+  </div>
+</a>
+       <a href="#" class="item-link" onclick="location.href='fund.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/wallet (2).svg' width='20px'></div>
+    <div class="item-inner">Fund Wallet</div>
+  </div>
+</a>
+<a href="#" class="item-link">
+  <div class="item-content">
+    <div class="item-media"><img src='images/checked.svg' width='20px'></div>
+    <div class="item-inner">View Transactions</div>
+  </div>
+</a>
+ <a href="#" class="item-link" onclick="location.href='profile.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/user.svg' width='20px'></div>
+    <div class="item-inner">My Profile</div>
+  </div>
+</a>
+
+ <a href="#" class="item-link" onclick="location.href='indx.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/power-button.svg' width='20px'></div>
+    <div class="item-inner">Logout</div>
+  </div>
+</a>
+    </ul>
+    
+</div>
+<p class="buttons-row hidden" style='position:fixed;bottom:20px;'>
+  <a href="#" class='aboutUs' ><img src='images/icon.svg' width='30px' style='padding-left:30px;padding-right:30px'></a>
+  <a href="#" class='contactUs' ><img src='images/customer-care.svg' width='30px' style='padding-right:30px'></a>
+  <a href="#" class='goToWebsite' ><img src='images/internet.svg' width='30px' style='padding-right:30px'></a>
+</p>
+<span style='position:fixed;bottom:2px;display:block;margin:auto;'>version 2.1.2<span>
+    </div>
+
+
+    <div class="views">
+    <div class="view view-main">
+        <!--toolbar-->
+ 
+      <div class="pages navbar-fixed">
+        <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                
+        
+<div data-page="about" class="page">
+ 
+  <div class="page-content">
+
+    <div class='content-block-title'><h1 style='color:red;text-align:center;'>UNIVASA</h1></div>
+   <p> Univasa.com is an integrated online payment platform that exposes/uses different channels (webportal, Mobile App: API and Web service) for easy payment and topups. Available services include Utility bills, Digital TVs, Mobile Topup and other day to day payments. Univasa.com is a product of Bemas Technologies Ltd, a full-service IT Solutions Provider and consulting firm was incorporated in November 2006 (RC 671638) and since then we have delivered custom based SMS, Voice and Enterprise application.</p>
+ 
+  <br>
+           <a href="#" onclick="location.href='index.html'" class="button button-fill button-raised back" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CLOSE</a>
+
+  </div>
+</div>
+    </div>
+
+
+
+
+
+
+    <!--///-->
+
+    <!--///-->
+    </div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of view main-->
+
+
+    
+    </div><!--end of views-->
+
+
+
+
+
+  <!--history popup-->
+ 
+
+
+
+
+
+
+
+
+
+
+ <!--topup-->
+
+
+
+  </div>
+
+
+<!--///-->
+
+
+
+
+
+    
+</body>
+
+
+<script>
+    
+      
+var myApp = new Framework7({
+    material:true,
+    materialRipple:false,
+    notificationCloseOnClick: false,
+    notificationHold: 4500
+    
+});
+
+var $$ = Dom7;
+
+
+var mainView = myApp.addView('.view-main', {
+    // Because we use fixed-through navbar we can enable dynamic navbar
+    
+    dynamicNavbar: true
+});
+
+
+
+
+$('.goToWebsite').click(function(){
+    cordova.InAppBrowser.open("https://www.univasa.com/home.php", '_self', 'location=yes');
+      
+});
+$('.contactUs').click(function(){
+    location.href='contact.html';
+      
+});
+$('.aboutUs').click(function(){
+    location.href='about.html';
+      
+});
+</script>
+</html>

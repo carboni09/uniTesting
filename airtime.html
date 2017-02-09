@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<title>Univasa</title>
+
+
+    <!--css links-->
+    <link href="styles/framework7.material.css" rel="stylesheet">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+     <link href="styles/style.css" rel="stylesheet">
+     <link href="styles/material-icons.css" rel="stylesheet">
+      <link href="styles/kitchen-sink.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/font-awesome-animation.min.css">
+    
+    <!--scripts-->
+    <script src="cordova.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/framework7.min.js"></script>
+
+    <script src="scripts/my-app.js"></script>
+    <script src="scripts/kitchen-sink.js"></script>
+
+
+    <script src="scripts/dashboard.js"></script>
+    <script src="scripts/status.js"></script>
+
+    <style>
+         @font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(fonts/MaterialIcons-Regular.woff2) format('woff2'),
+       url(fonts/MaterialIcons-Regular.woff) format('woff'),
+       url(fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  
+  
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+  .demo-card-header-pic .card-header {
+   
+    background-size: cover;
+    background-position: center;
+  }
+
+       body{
+           font-family: 'Ubuntu', sans-serif;
+       }
+       .name{
+           font-size:25px;
+           color: #ffffff;
+           
+       }
+       .facebook-date {
+  
+    font-size: 13px;
+    color: #ffffff;
+  }
+  .details{
+      font-size:17px;
+  }
+  .labels{
+      font-size:10px;
+  }.actions{
+      color:#607D8B;
+  }
+  .hidden{
+      display:none;
+  }
+  .label{
+      display:inline-block;
+      margin:auto;
+  }
+  .text-center{
+      font-family: 'Ubuntu', sans-serif;
+      
+  }
+       </style>
+    
+
+</head>
+<body>
+
+    <div class="statusbar-overlay"></div>
+
+    <div class="panel-overlay"></div>
+    
+    <div class="views">
+    <div class="view view-main">
+        <!--toolbar-->
+     <div class="toolbar" style="background-color:#aC493C">
+              <div class="toolbar-inner tabbar tabbar-labels">
+                <!-- Toolbar links -->
+                <a href="#"  class="link close-popup"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                <a href="#" class="link"><i class="fa fa-gift fa-2x" aria-hidden="true"></i>></a>
+                <a href="#" class="link"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
+                <!--<a href="#" class="link" style="font-size:30px;">UNIVASA</a>-->
+                <a href="#dashboard"  class="link"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
+              </div>
+            </div>
+      <div class="pages navbar-through toolbar-through">
+        <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                
+        <div class="page" data-page="index" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#CC695C  ); 
+background: linear-gradient(-190deg, #CC695C,#CC695C   );" >
+                
+              <div class="page-content" style="overflow:scroll;"> 
+                      
+                 <div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" style="font-size:9vh;text-align:right;" id="loadBalance">&#8358;---.--</div>
+    
+  </div>
+</div>
+
+
+
+
+
+
+<div class="row">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" data-popup=".popup-topup" class="open-popup"><img src='images/credit-card.svg' style="width:30vw;margin:auto;display:block;margin-top:-10px">
+<span style="font-size:8vw;margin-top:100px;color:#ffffff;">Buy Airtime</span>
+</a>
+
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" ><img src='images/wallet.svg' onclick="myFunction()" style="width:30vw;margin:auto;display:block;"></a>
+<span style="font-size:8vw;margin-top:100px;color:#ffffff;">Fund Wallet</span>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" data-popup=".popup-history" class="open-popup" ><img src='images/time-left.svg' style="width:30vw;margin:auto;margin-top:10px;display:block;"></a>
+<span style="font-size:8vw;margin-top:100px;color:#ffffff;">Topup history</span>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" data-popup=".popup-transactions" class="open-popup" ><img src='images/calendar.svg' style="width:30vw;margin:auto;margin-top:10px;display:block;"></a>
+<span style="font-size:8vw;margin-top:100px;color:#ffffff;">My Transactions</span>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" data-popup=".popup-status" class="open-popup" ><img src='images/faq.svg' style="width:30vw;margin:auto;margin-top:10px;display:block;"></a>
+<span style="font-size:8vw;margin-top:100px;color:#ffffff;">Check Status</span>
+</div>
+ 
+</div>
+<br>
+<br/>
+<br/>
+<br/>
+
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+   
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+    <!--///-->
+
+    <!--///-->
+    </div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of view main-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of views-->
+
+
+<!--//////-->
+    <div class="popup popup-topup tablet-fullscreen  navbar-through">
+   
+        <div class="page-content" style="overflow:hidden;"> 
+                      
+                     <div class="content-block " style="background: #ffffff;height:18%;">
+                          
+<div class="content-block">
+    <span style="display:none">
+    <img src='images/failed.svg' style="display:block;margin:auto;width:30px;">
+        <p style="font-size:18px;text-align:center;display:block;margin:auto;color:red;" >The verification code you entered is invalid, please try again</p></div>
+   </span>
+   
+   <p style="font-size:60px;text-align:center;display:block;margin:auto;display:block" id='loadBalance'>Topup</p>
+    <div style="display:none">
+    <img src='images/ring-alt.svg' style="display:block;margin:auto;">
+    <h3 style="text-align:center"> Loading</h3>
+    </div>
+ 
+    </div>
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+    <div class="content-block" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C   );height:75%; " >
+      <div class="content-block-inner"  > <div class="item-content">
+                  
+
+<!--<div class="row">
+<div class="col-auto">
+    <div class="card">
+  <div class="card-content"><a href="#" onclick="location.href=topup.html;" class="item-link" style="color:#000">
+    <div class="card-content-inner" style="text-align:center;"><img src='images/receive.svg' class='center' style="width:40px;"><br/>Buy Airtime</div>
+  </div>         
+          </a></div>
+</div></div>
+
+
+<div class="row">
+      <div class="col-50 tablet-100"><div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" style="text-align:center;"><img src='images/creditc.svg' class='center' style="width:40px;"><br/>Fund e-Wallet</div>
+  </div>         
+          </div></div>
+
+
+
+
+
+
+
+      <div class="col-50 tablet-100"><div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" style="text-align:center;"><img src='images/recent.svg' class='center' style="width:40px;"><br/>Recent Topup</div>
+  </div>         
+          </div></div>
+    </div>
+
+
+
+
+
+    <div class="row">
+      <div class="col-50 tablet-100"><div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" style="text-align:center;"><img src='images/history.svg' class='center' style="width:40px;"><br/>My transactions</div>
+  </div>         
+          </div></div>
+
+
+
+
+
+
+
+      <div class="col-50 tablet-100"><div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" style="text-align:center;"><img src='images/conversation.svg' class='center' style="width:40px;"><br/>Check Status</div>
+  </div>         
+          </div></div>
+    </div>
+
+
+
+
+    </div>-->
+ 
+<p class="buttons-row">
+<a href="#"  style="position:fixed;bottom:5%;left:10%;" class="close-popup"><img src='images/rewind.svg' width='60px'></a>
+<a href="#"  style="position:fixed;bottom:5%;right:10%;"><img src='images/forward.svg' width='60px'></a>
+
+</p>
+
+
+                    
+                
+                </div>
+                </div>
+        </div>
+
+
+    </div>
+
+  </div>
+
+
+  <!--history popup-->
+ <div class="popup popup-history tablet-fullscreen">
+
+     
+   
+ <div class="navbar" style="background-color:#37474F;">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="link close-popup" data-panel="right" >
+            
+            <img src=images/back.svg><span>Back</span>
+            </a>
+           
+        </div>
+        
+        <div class="right">
+            <div class="center">Topup History</div>
+            <!--<a href="#" class="link">
+               
+                
+            </a>-->
+        </div>
+    </div>
+</div> 
+
+
+        <div class="page-content"  style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #eeeeee ,#ffffff  ); 
+background: linear-gradient(-190deg, #eeeeee,#ffffff   );overflow:scroll;"> 
+
+
+
+<div class="content-block-title close-popup">Topup history</div>
+
+<div id="history">
+
+</div>
+
+
+
+
+        </div>
+ </div>
+
+ <!--my transactions-->
+ <div class="popup popup-transactions tablet-fullscreen">
+
+      <div class="navbar" style="background-color:#37474F;">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="link close-popup" data-panel="right" >
+            
+            <img src=images/back.svg><span>Back</span>
+            </a>
+           
+        </div>
+        
+        <div class="right">
+            <div class="center">All transactions</div>
+            <!--<a href="#" class="link">
+               
+                
+            </a>-->
+        </div>
+    </div>
+</div> 
+   
+        <div class="page-content"  style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #eeeeee ,#ffffff  ); 
+background: linear-gradient(-190deg, #eeeeee,#ffffff   );overflow:scroll;"> 
+
+<div class="content-block-title close-popup">Transactions</div>
+
+<div id="transactions">
+
+</div>
+
+
+
+<!--<p class="buttons-row">
+<a href="#"  style="position:fixed;bottom:5%;left:10%;" class="close-popup"><img src='images/rewind.svg' width='60px'></a>
+
+
+</p>-->
+
+        </div>
+ </div>
+
+
+
+
+ <!--status popup-->
+ <div class="popup popup-status tablet-fullscreen  navbar-fixed">
+
+      <div class="navbar" style="background-color:#37474F;">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="link close-popup goBack"  data-panel="right" >
+            
+            <img src=images/back.svg><span>Back</span>
+            </a>
+           
+        </div>
+        
+        <div class="right">
+            <div class="center">Check status</div>
+            <!--<a href="#" class="link">
+               
+                
+            </a>-->
+        </div>
+    </div>
+</div> 
+   
+        <!--***-->
+         <div class="page-content" style="overflow:hidden;"> 
+                      
+                     <div class="content-block " style="background: #ffffff;height:18vh;">
+                          
+<div class="content-block">
+    <span style="display:block">
+    <img src='images/failed.svg' style="display:none;margin:auto;width:30px;">
+        <p style="font-size:18px;text-align:center;display:none;margin:auto;color:red;" >The verification code you entered is invalid, please try again</p></div>
+   </span>
+   
+   <p style="font-size:5vh;text-align:center;display:block;margin:auto;" id='notify'>Check Status</p>
+    <div id='loader' class="hidden" >
+    <img src='images/ring-alt.svg' style="display:block;margin:auto;">
+    <h3 style="text-align:center"> Loading</h3>
+    </div>
+ 
+    </div>
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+    <div class="content-block" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C );height:80vh; " >
+      <div class="content-block-inner"  > 
+
+       <div class="statusAction">   
+    <div class="row">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" id='checkTransaction' ><img src='images/checked.svg' style="width:30vw;margin:auto;display:block;margin-top:-10px">
+<span style="font-size:8vw;margin-top:100px;color:#ffffff;">Transaction Status</span>
+</a>
+
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" id='voucherBalance'><img src='images/equal.svg' style="width:30vw;margin:auto;display:block;"></a>
+<span style="font-size:8vw;margin-top:100px;color:#ffffff;">Voucher Balance</span>
+</div>
+</div>
+       </div>
+
+<!--step2 status-->
+        <form id="transactionInput" class="hidden">
+<input type="text" id="transactionID" required style="width:89vw;height:10vh;text-align:center;font-size:21px;margin:auto;border-radius: 25px;display: block;margin-bottom:8px;" placeholder="Your name">            
+
+<a href="#" id="queryTransaction" class="button button-big button-fill button-raised" style="width:90vw;margin: auto;border-radius: 25px;background-color:#25373D;"><span id="submitText">CHECK</span>
+    <span id="preloader" style="display:none;"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span></span></a>
+
+
+</form> 
+
+       
+
+
+        
+                
+                </div>
+        </div>
+
+
+    </div>
+
+
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--topup-->
+
+ <div class="popup popup-topup tablet-fullscreen" >
+
+     <div class="navbar hidden" style="background-color:#37474F;">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="link close-popup goBack" >
+            
+            <img src=images/back.svg><span>Back</span>
+            </a>
+           
+        </div>
+        
+        <div class="right">
+            <div class="center">Topup</div>
+            <!--<a href="#" class="link">
+               
+                
+            </a>-->
+        </div>
+    </div>
+</div>
+   
+        <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/credit-card.svg" width="50px">
+              <img src="images/ring.svg" id="topupLoader" class="hidden">
+              <p id='topupNotify'>Buy Airtime<p>
+              
+              </div>
+      </div>
+     
+
+      <div id="topupForm" class="" >
+
+           <form class="list-block inputs-list">
+      <ul>
+          
+        <li style="margin-top:2vh;"> 
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons"  style="color:#ffffff">call</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Number to recharge</div>
+              <div class="item-input"   style="color:#ffffff">
+                <input type="tel" id="topupNumber" required placeholder="080--------" style="color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+            <img src="images/phone-book.svg" style="width:40px; height:40px;position:relative;right:2px;" id="contactListBtn" class="hidden">
+              </div>
+        </li>
+        <hr>
+         <li style="margin-top:2vh;">
+          <div class="item-content">
+            <div class="item-media"><img src="images/naira.svg"></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Amount</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="number" id='topupAmount' required placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+<hr>
+        <li style="margin-top:2vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">payment</i></div>
+            <div class="item-inner"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Payment Method</div>
+              <div class="item-input">
+                <select style="color:#ffffff;font-size:3vh;" required id='topupPayment'>
+                  <option value="">Choose payment option </option>
+                  <option value="wallet" >UNIVASA Wallet</option>
+                  <option value="voucher">UNIVASA Voucher</option>
+                  <option value="gtpay" >MasterCard / Verve Card</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </li>
+       
+
+       
+
+
+
+        
+       
+        
+       
+      </ul>
+
+      <hr/>
+      <br>
+      <input type="submit"  id='topupSubmit' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">
+
+           </form>
+          
+          
+
+</div> 
+
+<!--for wallet payment-->
+ <div id="walletPayment" class="hidden">
+      <form id="payWithWallet" class="list-block inputs-list">
+        <ul>
+          
+        <li style="margin-top:2vh;"> 
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons"  style="color:#ffffff">call</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Number to recharge</div>
+              <div class="item-input"   style="color:#ffffff">
+                <input type="text" id="walletTopupNumber" disabled placeholder=""/ style="color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+             </div>
+        </li>
+        
+        <li >
+          <div class="item-content">
+            <div class="item-media"><img src="images/naira.svg"></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Amount</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="number" id='walletTopupAmount' disabled placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+      
+        <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">question_answer</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Status</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="text" id='walletTopupStatus' disabled placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+        
+    
+        <hr>
+        <br/>
+            <a href='#' id='walletConfirm' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">Confirm</a>
+            <br>
+            <a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CANCEL</a>
+
+    
+        </ul>
+      </form>   
+ </div> 
+
+ <!--for pin payment--> 
+
+ <div id="pinPayment" class="hidden">
+      <form id="payWithPin" class="list-block inputs-list">
+        <ul>
+            
+          
+        <li > 
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons"  style="color:#ffffff">call</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Number to recharge</div>
+              <div class="item-input"   style="color:#ffffff">
+                <input type="number" id="pinTopupNumber" disabled placeholder=""/ style="color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+             </div>
+        </li>
+       
+        
+       <li >
+          <div class="item-content">
+            <div class="item-media"><img src='images/naira.svg'></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Amount</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="number" id='pinTopupAmount' disabled placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+        
+        
+        <li style="">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">question_answer</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Status</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="text" id='pinTopupStatus' disabled placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+        
+        <li >
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons faa-shake animated" style="color:#ffffff">payment</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Enter Voucher PIN</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="number" id='voucherPin' placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+        
+        
+</ul>
+       
+ <hr>
+        <br/>
+         <a href="#" id='voucherConfirm' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">CONFIRM</a>
+         <br>
+         <a href="#" id='' class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CANCEL</a>
+
+    
+        
+    
+
+      </form>   
+ 
+
+
+       
+
+       
+
+
+        
+                
+                </div>
+        </div>
+
+
+    </div>
+
+  </div>
+
+
+<!--///-->
+
+
+<script>
+
+       
+var myApp = new Framework7({
+    material:true,
+    materialRipple:false,
+    
+});
+
+var $$ = Dom7;
+
+
+var mainView = myApp.addView('.view-main', {
+    // Because we use fixed-through navbar we can enable dynamic navbar
+    
+    dynamicNavbar: true
+});
+
+$$('.notification-default').on('click', function () {
+    myApp.addNotification({
+        title: 'Framework7',
+        message: 'This is a simple notification message with title and message'
+    });
+});
+
+   
+        if(!navigator.onLine){
+            alert('offline');
+        }
+   
+    function myFunction(){
+        window.open("https://www.univasa.com");
+    }
+
+$('.goBack').click(function(){
+    location.href='index.html';
+});
+    
+
+
+    
+$('#checkTransaction').click(function(){
+ $('.statusAction').fadeOut();
+ $('#transactionInput').fadeIn();
+ $('#notify').text('Enter transaction ID');
+ var transID = $('#transactionInput').val();
+ $('#queryTransaction').click(function(){
+     var ref_number = $('#transactionID').val();
+     
+     $('#loader').css('display','block');
+     $.ajax({
+         type:'get',
+         url:'http://www.bemastech.com/caleb/mobileapi/status-check.php',
+         data:{ref_number:ref_number},
+
+         success:function(response){
+             alert(response);
+            
+         }
+     })
+
+ });
+
+});
+
+
+<!--topup-->
+
+$("#topupNumber").focus(function(){
+    $('#contactListBtn').fadeIn();
+});
+$("#topupNumber").blur(function(){
+    $('#contactListBtn').fadeOut();
+});
+
+
+
+
+$("#topupSubmit").click(function(){
+   
+ $('#topupNotify').hide();
+// $('#topupLoader').removeClass("hidden");
+ 
+ var account = $('#topupNumber').val();
+ var amount = $('#topupAmount').val();
+ var paywith  = $('#topupPayment').val();
+ 
+    var characterReg = /(?:\+?234|0)?(?:704|702|803|806|703|706|813|816|810|814|903|802|708|808|812|701|902|809|817|818|909|908|805|705|815|807|811|905)\d{7}/;
+    if(account == ''){
+        myApp.alert('Enter a phone number to topup','Try again')
+        return false;
+    }
+    if(!characterReg.test(account)) {
+        myApp.alert('The number you entered is invalid','Try again')
+        
+        return false;
+    }
+    if(amount == ''){
+        myApp.alert('Enter the amount you want to topup','Try again')
+        return false;
+    }
+    
+    if(paywith == ''){
+        myApp.alert('Choose a payment method','Try again')
+        return false;
+    }
+ //alert(account+amount+paywith);
+ $('#topupForm').fadeOut();
+ $('#topupNotify').html('Review your topup details before you proceed');
+
+ 
+ if(paywith === 'wallet'){
+     $('#walletPayment').removeClass("hidden");
+      $('#topupLoader').addClass("hidden");
+     $('#walletTopupNumber').val(account);
+ $('#walletTopupAmount').val(amount);
+ $('#walletTopupStatus').val('Pending');
+ $('#topupNotify').show();
+ 
+ return false;
+ }
+
+ if (paywith === 'voucher'){
+     $('#pinPayment').removeClass("hidden");
+     $('#topupLoader').addClass("hidden");
+     $('#pinTopupNumber').val(account);
+     $('#pinTopupAmount').val(amount);
+     $('#pinTopupStatus').val('Pending');
+     $('#topupNotify').html('Review your topup details and enter voucher pin');
+     $('#topupNotify').show();
+ 
+ return false;
+
+
+ } if(paywith === 'gtpay'){
+      cordova.InAppBrowser.open("https://www.univasa.com/mobileapi/gtpay.php?pay&serv=1&cat=1&amount=501&number=07033581503&user_id=24", '_self', 'location=no');
+      
+    
+ }
+
+
+
+});
+
+ $('#walletConfirm').click(function(){
+     var account = $('#topupNumber').val();
+ var amount = $('#topupAmount').val();
+ var paywith  = $('#topupPayment').val();
+ //alert(amount);
+ var a = false;
+ if (a){
+   myApp.modal({
+    title:  'Done',
+    text: '<div>'+'<img src="images/success.svg" width="100px" style="display:block;margin:auto;">'+
+    '<h4 style="text-align:center;">Your topup request has been submitted</h4>'+'</div>'+'<br>',
+        verticalButtons: true,
+    buttons: [
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">OK</a>',
+            onClick: function () {
+          location.href='index.html';
+        }
+        },
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CHECK STATUS</a>',
+            onClick: function () {
+                myApp.closeModal()
+          myApp.alert('Successful','Status Check')
+        }
+        },
+    ]
+
+  })
+
+ }
+
+ if (!a){
+     myApp.modal({
+    title:  'Failed',
+    text: '<div>'+'<img src="images/failed.svg" width="100px" style="display:block;margin:auto;">'+
+    '<h4 style="text-align:center;">failed</h4>'+'</div>'+'<br>',
+        verticalButtons: true,
+    buttons: [
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">OK</a>',
+            onClick: function () {
+          location.href='index.html';
+        }
+        }
+    ]
+
+  })
+
+ }
+
+});//end topup with wallet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function successCallback(contact) {
+	alert("Phone = " + contact[i].phoneNumbers);
+}
+
+$('#contactListBtn').click(function() {
+	//alert('Allow app to read phonebook data?');
+ 	navigator.contacts.pickContact(function(contact) {
+//		var phone = JSON.stringify(contact);
+		var numberC = contact.phoneNumbers[0].value;
+		var phoneNum = numberC.replace(/ /g,'');
+		$('#topupNumber').val(phoneNum);
+		//alert("Phone = " + phoneNum);
+	}, function(err) {
+		alert(err);
+	});
+});
+
+
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

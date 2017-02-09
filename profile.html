@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<title>Univasa</title>
+
+
+    <!--css links-->
+    <link href="styles/framework7.material.colors.min.css" rel="stylesheet">
+    <link href="styles/framework7.material.css" rel="stylesheet">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+     <link href="styles/style.css" rel="stylesheet">
+     <link href="styles/material-icons.css" rel="stylesheet">
+      <link href="styles/kitchen-sink.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/font-awesome-animation.min.css">
+    
+    <!--scripts-->
+    <script src="cordova.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/framework7.min.js"></script>
+
+    <script src="scripts/my-app.js"></script>
+    <script src="scripts/kitchen-sink.js"></script>
+
+
+    <script src="scripts/dashboard.js"></script>
+    <script src="scripts/fund.js"></script>
+    <script src="scripts/status.js"></script>
+    <script src="mixpanel.js"></script>
+
+    <style>
+         @font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(fonts/MaterialIcons-Regular.woff2) format('woff2'),
+       url(fonts/MaterialIcons-Regular.woff) format('woff'),
+       url(fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  
+  
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+  .demo-card-header-pic .card-header {
+   
+    background-size: cover;
+    background-position: center;
+  }
+
+       body{
+           font-family: 'Ubuntu', sans-serif;
+       }
+       .name{
+           font-size:25px;
+           color: #ffffff;
+           
+       }
+       .facebook-date {
+  
+    font-size: 13px;
+    color: #ffffff;
+  }
+  .details{
+      font-size:17px;
+  }
+  .labels{
+      font-size:10px;
+  }.actions{
+      color:#607D8B;
+  }
+  .hidden{
+      display:none;
+  }
+  .label{
+      display:inline-block;
+      margin:auto;
+  }
+  .text-center{
+      font-family: 'Ubuntu', sans-serif;
+      
+  }
+       </style>
+    
+
+</head>
+<body>
+
+    <div class="statusbar-overlay"></div>
+
+    <div class="panel-overlay"></div>
+
+    <div class="panel panel-left panel-reveal" style='background-color:#b1b1b1;'>
+        <div class="list-block">
+    <ul>
+         <a href="#" class="item-link" onclick="location.href='recharge.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/tablet1.svg' width='20px'></div>
+    <div class="item-inner">Buy Airtime</div>
+  </div>
+</a>
+ <a href="#" class="item-link" onclick="location.href='sms.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/sms1.svg' width='20px'></div>
+    <div class="item-inner">Send Bulk SMS</div>
+  </div>
+</a>
+       <a href="#" class="item-link" onclick="location.href='fund.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/wallet (2).svg' width='20px'></div>
+    <div class="item-inner">Fund Wallet</div>
+  </div>
+</a>
+<a href="#" class="item-link">
+  <div class="item-content">
+    <div class="item-media"><img src='images/checked.svg' width='20px'></div>
+    <div class="item-inner">View Transactions</div>
+  </div>
+</a>
+ <a href="#" class="item-link" onclick="location.href='profile.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/user.svg' width='20px'></div>
+    <div class="item-inner">My Profile</div>
+  </div>
+</a>
+
+ <a href="#" class="item-link" onclick="location.href='index.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/power-button.svg' width='20px'></div>
+    <div class="item-inner">Logout</div>
+  </div>
+</a>
+    </ul>
+    
+</div>
+<p class="buttons-row hidden" style='position:fixed;bottom:20px;'>
+  <a href="#" class='aboutUs' ><img src='images/icon.svg' width='30px' style='padding-left:30px;padding-right:30px'></a>
+  <a href="#" class='contactUs' ><img src='images/customer-care.svg' width='30px' style='padding-right:30px'></a>
+  <a href="#" class='goToWebsite' ><img src='images/internet.svg' width='30px' style='padding-right:30px'></a>
+</p>
+<span style='position:fixed;bottom:2px;display:block;margin:auto;'>version 2.1.2<span>
+    </div>
+    
+    <div class="views">
+    <div class="view view-main">
+        <!--toolbar-->
+     
+   
+      <div class="pages navbar-through toolbar-through">
+        <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                
+        <div class="page" data-page="index" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#CC695C  ); 
+background: linear-gradient(-190deg, #CC695C,#CC695C   );" >
+                
+              <div class="page-content theme-white" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C );overflow:scroll "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/users.svg" width="50px">
+
+              <p id='topupNotify'>My Profile<p>
+              
+              </div>
+      </div>
+     
+
+      <div  class="theme-white" >
+            <div class="theme-white" style="margin:auto;display:block;text-align:center;color:#ffffff">
+                <p class="content-block-title"><i class="material-icons">perm_identity</i></p>
+                <h3 id="profileName">-</h3>
+                <p class="content-block-title"><i class="material-icons">phone_android</i></p>
+                <h3 id="profileUsername">-</h3>
+                 <p class="content-block-title"><i class="material-icons">email</i></p>
+                <h3 id="profileEmail">-</h3>
+            </div>
+           
+          
+          
+
+</div> 
+<br/>
+<p class="buttons-row">
+  <a href="#" class="button password-modal"  style='color:#ffffff;'>Change Password</a>
+  
+</p>
+<br/>
+<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CLOSE</a>
+
+
+
+
+        </div>
+
+
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+   
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+    <!--///-->
+
+    <!--///-->
+    </div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of view main-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of views-->
+
+
+<!--//////-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--///-->
+
+
+
+<script>
+$('.goBack').click(function(){
+    location.href='recharge.html';
+});
+
+
+
+
+var myApp = new Framework7({
+    material:true,
+    materialRipple:false
+});
+ 
+var $$ = Dom7;
+$$('.password-modal').on('click', function () {
+    myApp.modalPassword('Enter your new password in the field below', "Change Password", function (password) {
+        myApp.showPreloader("Changing your Password")
+        var userID = window.localStorage.getItem("userID");
+        $.ajax({
+            type:'post',
+            url:'https://www.univasa.com/mobileapi/changePassword.php',
+            data:{password:password,user_id:userID},
+            beforeSend:function(){
+
+            },
+            success: function(response){
+                myApp.hidePreloader()
+                if(response == 'success'){
+                    
+                   
+                    myApp.alert("Your password has been changed", "Change Password")
+                    var user_id = window.localStorage.getItem("userID");
+                    mixpanel.identify(user_id);
+
+mixpanel.track("Change Password",{"user_id": user_id});
+                }else{
+                    myApp.alert(response, "Change Password")
+                }
+
+            }
+        }) //emd ajax
+    });
+}); 
+    </script>
+
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

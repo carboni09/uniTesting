@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<title>Univasa</title>
+
+
+    <!--css links-->
+    <link href="styles/framework7.material.css" rel="stylesheet">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+     <link href="styles/style.css" rel="stylesheet">
+     <link href="styles/material-icons.css" rel="stylesheet">
+      <link href="styles/kitchen-sink.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/font-awesome-animation.min.css">
+    
+    <!--scripts-->
+    <script src="cordova.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/framework7.min.js"></script>
+
+    <script src="scripts/my-app.js"></script>
+    <script src="scripts/kitchen-sink.js"></script>
+
+
+    <script src="scripts/dashboard.js"></script>
+    <script src="scripts/fund.js"></script>
+    <script src="scripts/status.js"></script>
+    <script src="mixpanel.js"></script>
+    <style>
+         @font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(fonts/MaterialIcons-Regular.woff2) format('woff2'),
+       url(fonts/MaterialIcons-Regular.woff) format('woff'),
+       url(fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  
+  
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+  .demo-card-header-pic .card-header {
+   
+    background-size: cover;
+    background-position: center;
+  }
+
+       body{
+           font-family: 'Ubuntu', sans-serif;
+       }
+       .name{
+           font-size:25px;
+           color: #ffffff;
+           
+       }
+       .facebook-date {
+  
+    font-size: 13px;
+    color: #ffffff;
+  }
+  .details{
+      font-size:17px;
+  }
+  .labels{
+      font-size:10px;
+  }.actions{
+      color:#607D8B;
+  }
+  .hidden{
+      display:none;
+  }
+  .label{
+      display:inline-block;
+      margin:auto;
+  }
+  .text-center{
+      font-family: 'Ubuntu', sans-serif;
+      
+  }hr{
+      display:none;
+  }
+       </style>
+    
+
+</head>
+<body>
+
+    <div class="statusbar-overlay"></div>
+
+    <div class="panel-overlay"></div>
+
+    <div class="panel panel-left panel-reveal" style='background-color:#b1b1b1;'>
+        <div class="list-block">
+    <ul>
+         <a href="#" class="item-link" onclick="location.href='recharge.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/tablet1.svg' width='20px'></div>
+    <div class="item-inner">Buy Airtime</div>
+  </div>
+</a>
+ <!--<a href="#" class="item-link hidden" onclick="location.href='sms.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/sms1.svg' width='20px'></div>
+    <div class="item-inner">Send Bulk SMS</div>
+  </div>
+</a>-->
+       <a href="#" class="item-link" onclick="location.href='fund.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/wallet (2).svg' width='20px'></div>
+    <div class="item-inner">Fund Wallet</div>
+  </div>
+</a>
+
+ <a href="#" class="item-link" onclick="location.href='profile.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/user.svg' width='20px'></div>
+    <div class="item-inner">My Profile</div>
+  </div>
+</a>
+<a href="#" class="item-link" onclick="location.href='contact.html'">
+  <div class="item-content">
+    <div class="item-media"><img src='images/conversation.svg' width='20px'></div>
+    <div class="item-inner">Contact Us</div>
+  </div>
+</a>
+ <a href="#" class="item-link" onclick="logout()">
+  <div class="item-content">
+    <div class="item-media"><img src='images/power-button.svg' width='20px'></div>
+    <div class="item-inner">Logout</div>
+  </div>
+</a>
+    </ul>
+    
+</div>
+<p class="buttons-row hidden" style='position:fixed;bottom:20px;'>
+  <a href="#" class='aboutUs' ><img src='images/icon.svg' width='30px' style='padding-left:30px;padding-right:30px'></a>
+  <a href="#" class='contactUs' ><img src='images/customer-care.svg' width='30px' style='padding-right:30px'></a>
+  <a href="#" class='goToWebsite' ><img src='images/internet.svg' width='30px' style='padding-right:30px'></a>
+</p>
+<span style='position:fixed;bottom:2px;display:block;margin:auto;'>version 2.1.2<span>
+    </div>
+    
+    <div class="views">
+    <div class="view view-main">
+        <!--toolbar-->
+        <div class="navbar" style='background-color:#333333'>
+    <div class="navbar-inner">
+      
+      <div class="center" style=''><strong>UNIVASA</strong></div>
+      <div class="right"><a href="#"  data-panel="left" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+    </div>
+  </div>
+     <div class="toolbar hidden" style="background-color:#aC493C">
+              <div class="toolbar-inner tabbar tabbar-labels">
+                <!-- Toolbar links -->
+                <a href="#"  class="link close-popup"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                <a href="#" class="link"><i class="fa fa-gift fa-2x" aria-hidden="true"></i>></a>
+                <a href="#" class="link"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
+                <!--<a href="#" class="link" style="font-size:30px;">UNIVASA</a>-->
+                <a href="#dashboard"  class="link"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
+              </div>
+            </div>
+      <div class="pages navbar-through toolbar-through">
+        <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                
+        <div class="page" data-page="index" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); " >
+                
+              <div class="page-content" style="overflow:scroll;"> 
+                  <br>
+                 <div class='content-block-title'></div>     
+                 <div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" style="font-size:9vh;text-align:center;" id="loadBalance">&#8358;---.--</div>
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+<div class="row">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" data-popup=".popup-topup" class="open-popup"><img src='images/credit-card.svg' style="width:20vw;margin:auto;display:block;margin-top:-10px">
+<span style="font-size:5vw;margin-top:100px;color:#ffffff;">Buy Airtime</span>
+</a>
+
+</div>
+</div>
+<hr>
+<div class="row" style="margin-top:2vh;">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" data-popup=".popup-fundWallet" class="open-popup" ><img src='images/wallet.svg'  style="width:15vw;margin:auto;display:block;"></a>
+<span style="font-size:5vw;margin-top:100px;color:#ffffff;">Fund Wallet</span>
+</div>
+</div>
+<hr>
+<div class="row" style="margin-top:2vh;">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" data-popup=".popup-history" class="open-popup" ><img src='images/stopwatchh.svg' style="width:15vw;margin:auto;margin-top:10px;display:block;"></a>
+<span style="font-size:5vw;margin-top:100px;color:#ffffff;">Topup history</span>
+</div>
+</div>
+<hr>
+<div class="row" style="margin-top:2vh;">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" data-popup=".popup-transactions" class="open-popup" ><img src='images/calendarr.svg' style="width:15vw;margin:auto;margin-top:10px;display:block;"></a>
+<span style="font-size:5vw;margin-top:100px;color:#ffffff;">My Transactions</span>
+</div>
+</div>
+<hr>
+<div class="row" style="margin-top:2vh;">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#" data-popup=".popup-status" class="open-popup" ><img src='images/faq.svg' style="width:15vw;margin:auto;margin-top:10px;display:block;"></a>
+
+<span style="font-size:5vw;margin-top:100px;color:#ffffff;">Check Status</span>
+</div>
+ 
+</div>
+<br>
+<br/>
+<br/>
+<br/>
+
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+   
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+    <!--//other pages/-->
+<div class="page cached" data-page="statusTransaction" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#CC695C  ); 
+background: linear-gradient(-190deg, #CC695C,#CC695C   );" >
+                
+             <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block ">
+          
+          <div class="list-block inputs-list theme-white">
+      <ul>
+          
+        <li> 
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons"  style="color:#ffffff">person_outline</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Name</div>
+              <div class="item-input"   style="color:#ffffff">
+                <input type="text" required  style="color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+             </div>
+        </li>
+        </ul>
+        </div>
+      </div>
+     
+
+       
+          <p>
+              Your current app version is out of date, update to the more recent version
+          </p>
+       
+     
+
+      <br>
+    
+   <a href="#"  onclick="updateApp()" class="button" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">Update App</a>
+    
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!--//ANother page-->
+    <div class="page cached" data-page="statusVoucher" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#CC695C  ); 
+background: linear-gradient(-190deg, #CC695C,#CC695C   );" >
+                
+             <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block ">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/credit-card.svg" width="50px"  class="hidden">
+              <img src="images/ring.svg" id="topupLoader" class="hidden">
+              <h4  style='font-size:5vh'>Update App<h4>
+              
+              </div>
+      </div>
+     
+
+       
+          <p>
+              Your current app version is out of date, update to the more recent version
+          </p>
+       
+     
+
+      <br>
+    
+   <a href="#"  onclick="updateApp()" class="button" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">Update App</a>
+    
+
+        </div>
+
+    </div>
+    <!--///-->
+    </div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of view main-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of views-->
+
+
+<!--//////-->
+
+
+
+  <!--history popup-->
+ <div class="popup popup-history tablet-fullscreen">
+
+     
+   
+ <div class="navbar" style="background-color:#333333;">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="link close-popup" data-panel="right" >
+            
+            <img src=images/back.svg><span>Back</span>
+            </a>
+           
+        </div>
+        
+        <div class="right">
+            <div class="center">Topup History</div>
+            <!--<a href="#" class="link">
+               
+                
+            </a>-->
+        </div>
+    </div>
+</div> 
+
+
+        <div class="page-content"  style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #eeeeee ,#ffffff  ); 
+background: linear-gradient(-190deg, #eeeeee,#ffffff   );overflow:scroll;"> 
+
+
+
+<div class="content-block-title close-popup">Topup history</div>
+
+<div id="history">
+
+</div>
+
+
+
+
+        </div>
+ </div>
+
+ <!--my transactions-->
+ <div class="popup popup-transactions tablet-fullscreen">
+
+      <div class="navbar" style="background-color:#333333;">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="link close-popup" data-panel="right" >
+            
+            <img src=images/back.svg><span>Back</span>
+            </a>
+           
+        </div>
+        
+        <div class="right">
+            <div class="center">All transactions</div>
+            <!--<a href="#" class="link">
+               
+                
+            </a>-->
+        </div>
+    </div>
+</div> 
+   
+        <div class="page-content"  style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #eeeeee ,#ffffff  ); 
+background: linear-gradient(-190deg, #eeeeee,#ffffff   );overflow:scroll;"> 
+
+<div class="content-block-title close-popup">Transactions</div>
+
+<div id="transactions">
+
+</div>
+
+
+
+<!--<p class="buttons-row">
+<a href="#"  style="position:fixed;bottom:5%;left:10%;" class="close-popup"><img src='images/rewind.svg' width='60px'></a>
+
+
+</p>-->
+
+        </div>
+ </div>
+
+
+
+
+ <!--status popup-->
+ <div class="popup popup-status tablet-fullscreen  navbar-fixed" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C );overflow:scroll;">
+
+      <div class="navbar" style="background-color:#37474F;">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="link close-popup goBack"  data-panel="right" >
+            
+            <img src=images/back.svg><span>Back</span>
+            </a>
+           
+        </div>
+        
+        <div class="right">
+            <div class="center">Check status</div>
+            <!--<a href="#" class="link">
+               
+                
+            </a>-->
+        </div>
+    </div>
+</div> 
+   
+        <!--***-->
+         <div class="page-content" > 
+
+  
+<div class="row statusAction" style="margin-top:2vh;">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#"  id="statusAction1" ><img src='images/checked.svg' style="width:15vw;margin:auto;margin-top:10px;display:block;"></a>
+<span style="font-size:5vw;margin-top:100px;color:#ffffff;">Check Transaction Status</span>
+</div>
+</div>
+<hr>
+<div class="row statusAction" style="margin-top:2vh;">
+<div class="col-auto tablet-100" style="text-align:center;">
+<a href="#"   id="statusAction2"><img src='images/equal.svg' style="width:15vw;margin:auto;margin-top:10px;display:block;"></a>
+<span style="font-size:5vw;margin-top:100px;color:#ffffff;">Check Voucher Balance</span>
+</div>
+ 
+</div>
+<br>
+<!--Transaction Form-->
+ <div id="statusAction1Form" class="list-block inputs-list theme-white hidden">
+      <ul>
+          
+        <li> 
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons"  style="color:#ffffff">person_outline</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:18px;">Transaction ID</div>
+              <div class="item-input"   style="color:#ffffff">
+                <input type="text" id="statusAction1Input" required placeholder="Enter Transaction ID"  style="color:#ffffff;font-size:23px;">
+              </div>
+            </div>
+             </div>
+        </li>
+        </ul>
+        <br>
+ <input type="submit" onclick="transactionCheck();" value='CHECK STATUS' id='statusAction1Button' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">
+ 
+        </div>
+
+<!--Voucher Balance Form-->
+ <div id="statusAction2Form" class="list-block inputs-list theme-white hidden">
+      <ul>
+          
+        <li> 
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons"  style="color:#ffffff">person_outline</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:18px;">Voucher PIN</div>
+              <div class="item-input"   style="color:#ffffff">
+                <input type="text" id="statusAction2Input" required placeholder="Enter Voucher PIN"  style="color:#ffffff;font-size:23px;">
+              </div>
+            </div>
+             </div>
+        </li>
+        </ul>
+            <br>
+ <input type="submit" onclick="voucherBalance();" value='CHECK BALANCE' id='statusAction2Button' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">
+ 
+        
+        </div>
+<br/>
+<br/>
+
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+   
+
+
+    </div>
+
+
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--topup-->
+
+ <div class="popup popup-topup tablet-fullscreen" >
+
+     <div class="navbar hidden" style="background-color:#37474F;">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="link close-popup goBack" >
+            
+            <img src=images/back.svg><span>Back</span>
+            </a>
+           
+        </div>
+        
+        <div class="right">
+            <div class="center">Topup</div>
+            <!--<a href="#" class="link">
+               
+                
+            </a>-->
+        </div>
+    </div>
+</div>
+   
+        <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/credit-card.svg" width="50px">
+              <img src="images/ring.svg" id="topupLoader" class="hidden">
+              <p id='topupNotify'>Buy Airtime<p>
+              
+              </div>
+      </div>
+     
+
+      <div id="topupForm" class="" >
+
+           <form class="list-block tablet-inset inputs-list">
+      <ul>
+          
+        <li style="margin-top:10px;"> 
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons"  style="color:#ffffff">call</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Phone Number</div>
+              <div class="item-input"   style="color:#ffffff">
+                <input type="tel" id="topupNumber" required placeholder="Enter phone number " style="color:#ffffff;font-size:22px;">
+              </div>
+            </div>
+            <img src="images/phone-book.svg" style="width:40px; height:40px;position:relative;right:2px;" id="contactListBtn" class="hidden">
+              </div>
+        </li>
+        <hr>
+         <li style="margin-top:10px;">
+          <div class="item-content">
+            <div class="item-media"><img src="images/naira.svg"></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Amount</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="number" id='topupAmount' required placeholder="Enter amount " style="padding-bottom:1vh;color:#ffffff;font-size:22px;">
+              </div>
+            </div>
+          </div>
+        </li>
+<hr>
+        <li style="margin-top:10px;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">payment</i></div>
+            <div class="item-inner"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Payment Method</div>
+              <div class="item-input">
+                <select style="color:#ffffff;font-size:22px;" required id='topupPayment'>
+                  <option value="">Choose payment option </option>
+                  <option value="wallet" >UNIVASA Wallet</option>
+                  <option value="voucher">UNIVASA Voucher</option>
+                  <option value="gtpay" >MasterCard /Visa /Verve Card</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </li>
+       
+
+       
+
+
+
+        
+       
+        
+       
+      </ul>
+
+      <hr/>
+      <br>
+      <input type="submit"  id='topupSubmit' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">
+      <br>
+            <a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CANCEL</a>
+
+           </form>
+          
+          
+
+</div> 
+
+<!--for wallet payment-->
+ <div id="walletPayment" class="hidden">
+      <form id="payWithWallet" class="list-block inputs-list">
+        <ul>
+          
+        <li style="margin-top:10px;"> 
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons"  style="color:#ffffff">call</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:19px;">Number to recharge</div>
+              <div class="item-input"   style="color:#ffffff">
+                <input type="text" id="walletTopupNumber" disabled placeholder=""/ style="color:#ffffff;font-size:25px;">
+              </div>
+            </div>
+             </div>
+        </li>
+        
+        <li style="margin-top:10px;">
+          <div class="item-content">
+            <div class="item-media"><img src="images/naira.svg"></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:19px;">Amount</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="number" id='walletTopupAmount' disabled placeholder=""/ style="color:#ffffff;font-size:25px;">
+              </div>
+            </div>
+          </div>
+        </li>
+      
+        <li style="margin-top:10px;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">question_answer</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:19px;">Status</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="text" id='walletTopupStatus' disabled placeholder="" style="color:#ffffff;font-size:25px;">
+              </div>
+            </div>
+          </div>
+        </li>
+        
+    
+        <hr>
+        <br/>
+            <a href='#' id='walletConfirm' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">Confirm</a>
+            <br>
+            <a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CANCEL</a>
+
+    
+        </ul>
+      </form>   
+ </div> 
+
+ <!--for pin payment--> 
+
+ <div id="pinPayment" class="hidden">
+      <form id="payWithPin" class="list-block inputs-list">
+        <ul>
+            
+          
+        <li > 
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons"  style="color:#ffffff">call</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:19px;">Number to recharge</div>
+              <div class="item-input"   style="color:#ffffff">
+                <input type="number" id="pinTopupNumber" disabled placeholder=""/ style="color:#ffffff;font-size:23px;">
+              </div>
+            </div>
+             </div>
+        </li>
+       
+        
+       <li >
+          <div class="item-content">
+            <div class="item-media"><img src='images/naira.svg'></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:19px;">Amount</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="number" id='pinTopupAmount' disabled placeholder=""/ style="padding-top:3px;padding-bottom:3px;color:#ffffff;font-size:23px;">
+              </div>
+            </div>
+          </div>
+        </li>
+        
+        
+        <li style="">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">question_answer</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title label" style="color:#ffffff;font-size:19px;">Status</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="text" id='pinTopupStatus' disabled placeholder=""/ style="padding-top:3px;padding-bottom:3px;color:#ffffff;font-size:23px;">
+              </div>
+            </div>
+          </div>
+        </li>
+        
+        <li >
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons faa-shake animated" style="color:#ffffff">payment</i></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:19px;">Enter Voucher PIN</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="number" id='voucherPin' placeholder=""/ style="padding-top:3px;padding-bottom:3px;color:#ffffff;font-size:23px;">
+              </div>
+            </div>
+          </div>
+        </li>
+        
+        
+</ul>
+       
+ <hr>
+        <br/>
+         <a href="#" id='voucherConfirm' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">CONFIRM</a>
+         <br>
+         <a href="#" id='' class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CANCEL</a>
+
+    
+        
+    
+
+      </form>   
+ 
+
+
+       
+
+       
+
+
+        
+                
+                </div>
+        </div>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+<!--fund wallet-->
+
+ <div class="popup popup-fundWallet tablet-fullscreen" >
+
+     
+   
+        <div class="page-content" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C ); "> 
+                      
+                     
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+      <div class="content-block">
+          
+          <div style="color:#ffffff;text-align:center;font-size:3vh;margin:auto;display:block;margin-bottom:50px;">
+              <img src="images/wallet.svg" width="50px">
+
+              <p id='topupNotify'>Fund Wallet<p>
+              
+              </div>
+      </div>
+     
+
+      <div  class="" >
+
+           <div id="fundForm" class="list-block inputs-list">
+      <ul>
+          
+       
+         <li style="margin-top:2vh;">
+          <div class="item-content">
+            <div class="item-media"><img src="images/naira.svg"></div>
+            <div class="item-inner" style="color:#ffffff"> 
+              <div class="item-title floating-label" style="color:#ffffff;font-size:2vh;">Amount to fund</div>
+              <div class="item-input" style="color:#ffffff">
+                <input type="number" id='fundAmount'  placeholder=""/ style="padding-top:1vh;padding-bottom:1vh;color:#ffffff;font-size:4vh;">
+              </div>
+            </div>
+          </div>
+        </li>
+<hr>
+        <li style="margin-top:2vh;">
+          <div class="item-content">
+            <div class="item-media"><i class="icon material-icons" style="color:#ffffff">payment</i></div>
+            <div class="item-inner"> 
+              <div class="item-title label" style="color:#ffffff;font-size:2vh;">Payment Method</div>
+              <div class="item-input">
+                <select style="color:#ffffff;font-size:3vh;"  id='fundPayment'>
+                  <option value="">Choose payment option </option>
+                  
+                  <option value="gtpay" >MasterCard / Verve Card</option>
+                  <option value="dbp">Direct Bank Payment</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </li>
+       
+
+       
+
+
+
+        
+       
+        
+       
+      </ul>
+
+      <hr/>
+      <br>
+      <input type="submit"  id='fundSubmit' class="button button-fill button-raised" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#333333">
+      <br>
+            <a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CANCEL</a>
+
+           </div>
+          
+          
+
+</div> 
+
+
+
+        </div>
+<!--end fund-->
+
+    </div>
+<!--///-->
+
+
+<script>
+
+       
+var myApp = new Framework7({
+    material:true,
+    materialRipple:false,
+    
+});
+
+var $$ = Dom7;
+
+
+var mainView = myApp.addView('.view-main', {
+    // Because we use fixed-through navbar we can enable dynamic navbar
+    
+    dynamicNavbar: true
+});
+
+$$('.notification-default').on('click', function () {
+    myApp.addNotification({
+        title: 'Framework7',
+        message: 'This is a simple notification message with title and message'
+    });
+});
+
+   
+        var userID = window.localStorage.getItem("userID"); 
+
+   var accessKey = window.localStorage.getItem("accessKey"); 
+
+$('.goBack').click(function(){
+    location.href='recharge.html';
+});
+    
+
+
+    
+$('#checkTransaction').click(function(){
+ $('.statusAction').fadeOut();
+ $('#transactionInput').fadeIn();
+ $('#notify').text('Enter transaction ID');
+ var transID = $('#transactionInput').val();
+ $('#queryTransaction').click(function(){
+     var ref_number = $('#transactionID').val();
+     
+     $('#loader').css('display','block');
+     $.ajax({
+         type:'get',
+         url:'http://www.bemastech.com/caleb/mobileapi/status-check.php',
+         data:{ref_number:ref_number},
+
+         success:function(response){
+             alert(response);
+            
+         }
+     })
+
+ });
+
+});
+
+
+<!--topup-->
+
+$("#topupNumber").focus(function(){
+    $('#contactListBtn').fadeIn();
+});
+$("#topupNumber").blur(function(){
+    $('#contactListBtn').fadeOut();
+});
+
+
+
+
+$("#topupSubmit").click(function(){
+   
+
+
+ //get values from input
+ var account = $('#topupNumber').val();
+ var amount = $('#topupAmount').val();
+ var paywith  = $('#topupPayment').val();
+ 
+ //validate input
+    var characterPreg = /(?:\+?234|0)?(?:704|702|803|806|703|706|813|816|810|814|903|802|708|808|812|701|902|809|817|818|909|908|805|705|815|807|811|905)\d{7}/;
+    if(account == ''){
+        myApp.alert('Enter a phone number to recharge','Try again')
+        return false;
+    }
+    if(!characterPreg.test(account)) {
+        myApp.alert('The number you entered is invalid','Try again')
+        
+        return false;
+    }
+    if(amount == ''){
+        myApp.alert('Enter the amount you want to topup','Try again')
+        return false;
+    }
+    
+    if(paywith == ''){
+        myApp.alert('Choose a payment method','Try again')
+        return false;
+    }
+    if(amount < 50){
+        myApp.alert('The minimum recharge amount is 50','Try again')
+        return false;
+    }
+ //end validate input
+
+
+ 
+ if(paywith === 'wallet'){
+      $('#topupNotify').hide();
+      $('#topupForm').fadeOut();
+ $('#topupNotify').html('Review your topup details before you proceed');
+
+     $('#walletPayment').removeClass("hidden");
+      $('#topupLoader').addClass("hidden");
+     $('#walletTopupNumber').val(account);
+ $('#walletTopupAmount').val(amount);
+ $('#walletTopupStatus').val('Pending');
+ $('#topupNotify').show();
+
+
+ return false;
+ 
+ }
+
+ if (paywith === 'voucher'){
+      $('#topupNotify').hide();
+      $('#topupForm').fadeOut();
+ $('#topupNotify').html('Review your topup details before you proceed');
+     $('#pinPayment').removeClass("hidden");
+     $('#topupLoader').addClass("hidden");
+     $('#pinTopupNumber').val(account);
+     $('#pinTopupAmount').val(amount);
+     $('#pinTopupStatus').val('Pending');
+     $('#topupNotify').html('Review your topup details and enter voucher pin');
+     $('#topupNotify').show();
+
+     return false;
+     
+     
+     } 
+ 
+ if(paywith === 'gtpay'){
+
+      var d = new Date();
+var t = d.getTime();
+var g = String(t);
+var f = g.substring(8);
+var v = Math.floor((Math.random() * 1111100) + 2900000);
+var ref = f+v;
+window.localStorage.setItem("ref", ref);
+
+      var account = $('#topupNumber').val();
+ var amount = $('#topupAmount').val();
+ var paywith  = $('#topupPayment').val();
+ var category = '1';
+ var service = '';
+			var userID = window.localStorage.getItem("userID"); 
+            //var amount = localStorage.setItem("amount",amount);
+			var browser = cordova.InAppBrowser.open('https://www.univasa.com/mobileapi/gtpay2.php?pay&serv='+service+'&cat='+category+'&amount='+amount+'&number='+account+'&user_id='+userID+'&ref='+ref, '_self', 'location=no');
+            
+            setInterval(balanceIncrease, 3000);
+            //window.open('http://www.bemastech.com/caleb/mobileapi/gtpay.php?pay&serv='+service+'&cat='+category+'&amount='+amount+'&number='+account+'&user_id='+userID)
+			function balanceIncrease(){
+         var userID = window.localStorage.getItem("userID");
+    //var accessKey = window.localStorage.getItem("accessKey");
+       //var balanceBeforeFund =  window.localStorage.getItem("balance");
+       //var amount = window.localStorage.getItem("amount");
+       var ref = window.localStorage.getItem("ref");
+       
+       //var transRef = '';
+            $.ajax({
+                type:'get',
+                url:'https://www.univasa.com/mobileapi/gtpayFund.php',
+                //data:{fund:fund,transRefCheck:transRefCheck,user_id:userID,amount:amount},
+                data:{transRef:ref},
+              
+                dataType:"json",
+               
+                success:function(response){
+                  var responseFundStatus =  response[2]; 
+                  var responseFundAmount =  response[0]; 
+                  var responseFundDate =  response[1]; 
+                   // alert(responseFundStatus+' '+responseFundAmount+' '+responseFundDate);
+                    
+
+
+
+                    if(responseFundStatus == 'Completed'){
+                browser.close();
+                //localStorage.removeItem("balance");
+                myApp.modal({
+    title:  'Done',
+    text: '<div>'+'<img src="images/success.svg" width="100px" style="display:block;margin:auto;">'+
+    '<h4 style="text-align:center;">Your topup request has been submitted</h4>'+'</div>'+'<br>',
+        verticalButtons: true,
+    buttons: [
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">OK</a>',
+            onClick: function () {
+          myApp.closeModal()
+          clearInterval(balanceIncrease);
+          window.location.href = 'recharge.html';
+        }
+        },
+        
+    ]
+
+  })   
+
+  var user_id = window.localStorage.getItem("userID");
+        mixpanel.identify(user_id);
+mixpanel.people.increment({
+
+    
+    "Total Amount Recharged": amount
+
+  
+})
+
+mixpanel.track("Topup with ATM card",
+                                           {"user_id": user_id, "amount":amount})
+
+                return false;
+        }
+            if(responseFundStatus == 'Failed'){
+                browser.close();
+                //localStorage.removeItem("balance");
+                myApp.modal({
+    title:  'Failed',
+    text: '<div>'+'<img src="images/failed.svg" width="100px" style="display:block;margin:auto;">'+
+    '<h4 style="text-align:center;">Your topup request failed</h4>'+'</div>'+'<br>',
+        verticalButtons: true,
+    buttons: [
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">OK</a>',
+            onClick: function () {
+          myApp.closeModal()
+          clearInterval(balanceIncrease);
+          window.location.href = 'recharge.html';
+        }
+        },
+        
+    ]
+
+  })
+
+
+                return false;
+        }
+
+                } //end success
+
+                
+
+
+            })
+  };//end function
+			return false;
+ }
+
+
+
+});
+//if payment method is wallet
+ $('#walletConfirm').click(function(){
+     
+var account = $('#topupNumber').val();
+ var amount = $('#topupAmount').val();
+ var paywith  = $('#topupPayment').val();
+ var category = '1';
+ var service = '';
+ var newAPP = '1';
+ myApp.showPreloader('Recharging '+account+' with '+'&#8358;'+amount)
+ $.ajax({
+     type:'post',
+     url:'https://www.univasa.com/mobileapi/topup.php',
+   // url:'http://www.bemastech.com/caleb/mobileapi/topup.php',
+    //data:{amount:amount,number:account,user_id:userID,newAPP:newAPP},
+     data:{amount:amount,number:account,user_id:userID},
+     //dataType:"json",
+     success:function(response){
+         var responseTopupStatus = response[0];
+         var responseTopupRef = response[1];
+         var ref = window.localStorage.setItem("ref", responseTopupRef);
+         myApp.hidePreloader()
+         
+         if (responseTopupStatus == 'Submitted'){
+   myApp.modal({
+    title:  'Done',
+    text: '<div>'+'<img src="images/success.svg" width="100px" style="display:block;margin:auto;">'+
+    '<h4 style="text-align:center;">Your topup request has been submitted</h4>'+'</div>'+'<br>',
+        verticalButtons: true,
+    buttons: [
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">OK</a>',
+            onClick: function () {
+          location.href='recharge.html';
+        }
+        },
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CHECK STATUS</a>',
+            onClick: function () {
+                myApp.closeModal()
+                var ref = window.localStorage.getItem("ref");
+                $.ajax({
+                    type:'get',
+                    url:'https://www.univasa.com/mobileapi/topup-status-check.php',
+                    data:{ref_number:ref},
+                    success:function(response){
+                         window.localStorage.removeItem("ref");
+                        myApp.alert(response,'Status Check')
+                    }
+                    
+                })
+          return false;
+        }
+        },
+    ]
+
+  })
+  
+ }else{
+     
+                    myApp.alert(response,'Try Again')
+               
+
+ }
+
+     }//end success function
+
+ });// end wallet topup ajax call
+
+});//end topup with wallet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//if payment method is voucher
+ $('#voucherConfirm').click(function(){
+   
+var account = $('#topupNumber').val();
+ var amount = $('#topupAmount').val();
+ var paywith  = $('#topupPayment').val();
+ var category = '1';
+ var service = '';
+ var voucher = $('#voucherPin').val();
+
+ var characterPreg2 = /\d/g;
+   if(!characterPreg2.test(voucher) || voucher == '') {
+       myApp.alert('Enter your voucher PIN','Try again')
+       return false;
+   } 
+ 
+ myApp.showPreloader('Recharging '+account+' with '+'&#8358;'+amount)
+ $.ajax({
+     type:'post',
+     url:'https://www.univasa.com/mobileapi/topup.php',
+      
+     data:{cat:category,serv:service,amount:amount,number:account,user_id:userID,pin:voucher},
+    
+     success:function(response){
+         myApp.hidePreloader()
+         if (response == 'Submitted'){
+   myApp.modal({
+    title:  'Done',
+    text: '<div>'+'<img src="images/success.svg" width="100px" style="display:block;margin:auto;">'+
+    '<h4 style="text-align:center;">Your topup request has been submitted</h4>'+'</div>'+'<br>',
+        verticalButtons: true,
+    buttons: [
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">OK</a>',
+            onClick: function () {
+          location.href='recharge.html';
+        }
+        },
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">CHECK STATUS</a>',
+            onClick: function () {
+                myApp.closeModal()
+          myApp.alert('Successful','Status Check')
+        }
+        },
+    ]
+
+  })
+
+ }else{
+     
+                    myApp.alert(response,'Try Again')
+                  /*  var message = response;
+                    $('#errorAlert2').html(response)
+     myApp.modal({
+    title:  'Failed',
+    text: '<div>'+'<img src="images/failed.svg" width="100px" style="display:block;margin:auto;">'+
+    '<h4 style="text-align:center;" id="errorAlert2"></h4>'+'</div>'+'<br>',
+        verticalButtons: true,
+    buttons: [
+        {
+            text:'<a href="#"  class="button button-fill button-raised goBack" style="margin-top:3vh;display:block;margin:auto;width:80%;background-color:#555555">TRY AGAIN</a>',
+            onClick: function () {
+          myApp.closeModal()
+        }
+        }
+    ]
+
+  }) */
+
+ }
+
+     }//end success function
+
+ });// end voucher topup ajax call
+
+});//end topup with voucher
+
+
+
+
+
+
+
+
+
+
+
+
+function transactionCheck(){
+     //  myApp.prompt('Enter transaction ID in the field below', 'Status Check',
+    //  function (value) {
+
+        var value = $('#statusAction1Input').val();
+        myApp.showIndicator()
+        $.ajax({
+                    type:'get',
+                    url:'https://www.univasa.com/mobileapi/topup-status-check.php',
+                    data:{ref_number:value},
+                    
+                    success:function(response){
+                        myApp.hideIndicator()
+                        myApp.alert(response,'Status Check')
+                    }
+                    
+                });
+     // }
+   // );
+};
+
+
+
+
+
+function voucherBalance(){
+      // myApp.prompt('Enter Voucher PIN in the field below', 'Voucher Balance',
+     // function (value) {
+
+
+         var value = $('#statusAction2Input').val();
+        myApp.showIndicator()
+        $.ajax({
+                    type:'get',
+                    url:'http://www.bemastech.com/caleb/mobileapi/voucher-balance.php',
+                    data:{pin:value},
+                    
+                    success:function(response){
+                        myApp.hideIndicator()
+                        myApp.alert('Balance: '+response,'Voucher Balance')
+                    }
+                    
+                });
+     // }
+    //);
+};
+
+
+
+
+
+
+
+function logout(){
+    var user_id = window.localStorage.getItem("userID");
+mixpanel.identify(user_id);
+mixpanel.track("Logout",{"user_id": user_id});
+                                           window.location.href = 'index.html';
+}
+
+
+
+
+
+
+
+
+
+function successCallback(contact) {
+	alert("Phone = " + contact[i].phoneNumbers);
+}
+
+$('#contactListBtn').click(function() {
+	//alert('Allow app to read phonebook data?');
+ 	navigator.contacts.pickContact(function(contact) {
+//		var phone = JSON.stringify(contact);
+		var numberC = contact.phoneNumbers[0].value;
+		var phoneNum = numberC.replace(/ /g,'');
+		$('#topupNumber').val(phoneNum);
+		//alert("Phone = " + phoneNum);
+	}, function(err) {
+		alert(err);
+	});
+});
+
+
+
+
+
+
+    </script>
+<script>
+    $('#statusAction1').click(function(){
+        $('.statusAction').hide();
+        $('#statusAction1Form').removeClass('hidden');
+
+    });
+
+     $('#statusAction2').click(function(){
+        $('.statusAction').hide();
+        $('#statusAction2Form').removeClass('hidden');
+
+    });
+    </script>
+
+    
+</body>
+</html>

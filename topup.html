@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<title>Univasa</title>
+
+
+    <!--css links-->
+    <link href="styles/framework7.material.css" rel="stylesheet">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+     <link href="styles/style.css" rel="stylesheet">
+    <!--scripts-->
+    <script src="cordova.js"></script>
+    <script src="scripts/jquery.min"></script>
+    <script src="scripts/framework7.min.js"></script>
+    <script src="scripts/my-app.js"></script>
+    <script src="scripts/dashboard.js"></script>
+    
+
+</head>
+<body>
+
+    <div class="statusbar-overlay"></div>
+
+    <div class="panel-overlay"></div>
+    
+    <div class="views">
+    <div class="view view-main">
+        <!--toolbar-->
+     <div class="toolbar" style="background-color:#aC493C">
+              <div class="toolbar-inner tabbar tabbar-labels">
+                <!-- Toolbar links -->
+                <a href="#"  class="link close-popup"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                <!--<a href="#" class="link"><i class="fa fa-gift fa-2x" aria-hidden="true"></i>></a>
+                <a href="#" class="link"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>-->
+                <a href="#" class="link" style="font-size:30px;">UNIVASA</a>
+                <a href="#dashboard"  class="link"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
+              </div>
+            </div>
+      <div class="pages navbar-through toolbar-through">
+        <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                
+        <div class="page" data-page="index" style="background: #ffffff;" >
+                
+              <div class="page-content" style="overflow:hidden;"> 
+                      
+                     <div class="content-block " style="background: #ffffff;height:18%;">
+                          
+<div class="content-block">
+    <span style="display:none">
+    <img src='images/failed.svg' style="display:block;margin:auto;width:30px;">
+        <p style="font-size:18px;text-align:center;display:block;margin:auto;color:red;" >The verification code you entered is invalid, please try again</p></div>
+   </span>
+   
+   <p style="font-size:60px;text-align:center;display:block;margin:auto;display:block" id='loadBalance'>Recent Topup</p>
+    <div style="display:none">
+    <img src='images/ring-alt.svg' style="display:block;margin:auto;">
+    <h3 style="text-align:center"> Loading</h3>
+    </div>
+ 
+    </div>
+ 
+    <!-- We can wrap content with additional "content-block-inner" element for additional highlighting -->
+    <div class="content-block" style="background: #DC2424; 
+background: -webkit-linear-gradient(-190deg,  #CC695C ,#B71C1C  ); 
+background: linear-gradient(-190deg, #CC695C,#B71C1C   );height:70%; " >
+      <div class="content-block-inner"  > <div class="item-content">
+                  
+
+<div class="row">
+<div class="col-auto">
+    <div class="card">
+  <div class="card-content"><a href="#dashboard" class="item-link" style="color:#000">
+    <div class="card-content-inner" style="text-align:center;"><img src='images/receive.svg' class='center' style="width:40px;"><br/>Buy Airtime</div>
+  </div>         
+          </a></div>
+</div></div>
+
+
+<div class="row">
+      <div class="col-50 tablet-100"><div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" style="text-align:center;"><img src='images/creditc.svg' class='center' style="width:40px;"><br/>Fund e-Wallet</div>
+  </div>         
+          </div></div>
+
+
+
+
+
+
+
+      <div class="col-50 tablet-100"><div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" style="text-align:center;"><img src='images/recent.svg' class='center' style="width:40px;"><br/>Recent Topup</div>
+  </div>         
+          </div></div>
+    </div>
+
+
+
+
+
+    <div class="row">
+      <div class="col-50 tablet-100"><div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" style="text-align:center;"><img src='images/history.svg' class='center' style="width:40px;"><br/>My transactions</div>
+  </div>         
+          </div></div>
+
+
+
+
+
+
+
+      <div class="col-50 tablet-100"><div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" style="text-align:center;"><img src='images/conversation.svg' class='center' style="width:40px;"><br/>Check Status</div>
+  </div>         
+          </div></div>
+    </div>
+
+
+
+
+    </div>
+
+                    
+                
+                
+                </div>
+        </div>
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+    <!--///-->
+
+    <!--///-->
+    </div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of view main-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div><!--end of views-->
+    
+</body>
+</html>
